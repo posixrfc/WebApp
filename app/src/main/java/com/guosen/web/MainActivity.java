@@ -16,6 +16,7 @@ import android.view.Window;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import java.net.NetworkInterface;
 import java.security.MessageDigest;
@@ -45,9 +46,10 @@ public class MainActivity extends AppCompatActivity {
         settings.setCacheMode(WebSettings.LOAD_NO_CACHE);
         _webView.clearCache(true);
         _webView.addJavascriptInterface(this, "native");
-        _webView.loadUrl("http://www.o6o4.com");
+        _webView.setWebViewClient(new WebViewClient());
+        //_webView.loadUrl("http://www.o6o4.com");
         //_webView.loadUrl("http://125.88.183.165:8082");
-        //_webView.loadUrl("http://172.24.177.42:8099");
+        _webView.loadUrl("https://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/");
     }
     public String digest(String src) throws Exception {
         if (null == src || src.length() == 0) return null;
@@ -60,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        String permissions[] = {
+        String[] permissions = {
                 Manifest.permission.ACCESS_NETWORK_STATE,
                 Manifest.permission.INTERNET,
                 Manifest.permission.READ_PHONE_STATE,
