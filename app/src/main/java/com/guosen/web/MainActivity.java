@@ -47,8 +47,7 @@ public class MainActivity extends AppCompatActivity {
         _webView.clearCache(true);
         _webView.addJavascriptInterface(this, "native");
         _webView.setWebViewClient(new WebViewClient());
-        _webView.loadUrl("http://125.88.181.237:8081/");
-        //_webView.loadUrl("http://192.168.43.68:8099");
+        _webView.loadUrl("https://www.postgresql.org/docs/");
     }
     public String digest(String src) throws Exception {
         if (null == src || src.length() == 0) return null;
